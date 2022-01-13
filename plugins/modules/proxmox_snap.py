@@ -1,1 +1,1 @@
-./cloud/misc/proxmox_snap.py
+./cloud/proxmox/proxmox_snap.py

@@ -1,1 +1,1 @@
-cloud/misc/proxmox_nic.py
+./cloud/proxmox/proxmox_nic.py

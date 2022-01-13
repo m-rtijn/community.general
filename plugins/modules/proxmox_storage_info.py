@@ -1,1 +1,1 @@
-cloud/misc/proxmox_storage_info.py
+./cloud/proxmox/proxmox_storage_info.py

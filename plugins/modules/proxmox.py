@@ -1,1 +1,1 @@
-./cloud/misc/proxmox.py
+./cloud/proxmox/proxmox.py

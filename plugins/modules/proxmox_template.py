@@ -1,1 +1,1 @@
-./cloud/misc/proxmox_template.py
+./cloud/proxmox/proxmox_template.py

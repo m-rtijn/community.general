@@ -1,1 +1,1 @@
-cloud/misc/proxmox_tasks_info.py
+./cloud/proxmox/proxmox_tasks_info.py

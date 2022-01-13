@@ -1,1 +1,1 @@
-./cloud/misc/proxmox_kvm.py
+./cloud/proxmox/proxmox_kvm.py

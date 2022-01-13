@@ -1,1 +1,1 @@
-cloud/misc/proxmox_group_info.py
+./cloud/proxmox/proxmox_group_info.py

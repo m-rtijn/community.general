@@ -1,1 +1,1 @@
-cloud/misc/proxmox_domain_info.py
+./cloud/proxmox/proxmox_domain_info.py
