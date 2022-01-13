@@ -1,10 +1,10 @@
 ---
 # Copy this file to 'tests/integration/integration_config.yml' and add your API credentials and node/host info
-api_host: "192.168.3.24"
+api_host: "put the IP or FQDN of your host here"
 user: "root"
 domain: "pam"
-api_token_id:
-api_token_secret:
+api_token_id: "ansible_test_token"
+api_token_secret: "put your api secret here"
 node: "proxmox"
 validate_certs: "no"
 vmid: 900
