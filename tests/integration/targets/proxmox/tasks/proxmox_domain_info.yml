@@ -1,0 +1,32 @@
+- name: List domains
+  proxmox_domain_info:
+    api_host: "{{ api_host }}"
+    api_user: "{{ user }}@{{ domain }}"
+    api_password: "{{ api_password | default(omit) }}"
+    api_token_id: "{{ api_token_id | default(omit) }}"
+    api_token_secret: "{{ api_token_secret | default(omit) }}"
+    validate_certs: "{{ validate_certs }}"
+  register: results
+
+- assert:
+    that:
+    - results is not changed
+    - results.proxmox_domains is defined
+
+- name: Retrieve info about pve
+  proxmox_domain_info:
+    api_host: "{{ api_host }}"
+    api_user: "{{ user }}@{{ domain }}"
+    api_password: "{{ api_password | default(omit) }}"
+    api_token_id: "{{ api_token_id | default(omit) }}"
+    api_token_secret: "{{ api_token_secret | default(omit) }}"
+    validate_certs: "{{ validate_certs }}"
+    domain: pve
+  register: results
+
+- assert:
+    that:
+    - results is not changed
+    - results.proxmox_domains is defined
+    - results.proxmox_domains|length == 1
+    - results.proxmox_domains[0].type == 'pve'

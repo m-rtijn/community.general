@@ -1,0 +1,14 @@
+- name: List groups
+  proxmox_group_info:
+    api_host: "{{ api_host }}"
+    api_user: "{{ user }}@{{ domain }}"
+    api_password: "{{ api_password | default(omit) }}"
+    api_token_id: "{{ api_token_id | default(omit) }}"
+    api_token_secret: "{{ api_token_secret | default(omit) }}"
+    validate_certs: "{{ validate_certs }}"
+  register: results
+
+- assert:
+    that:
+    - results is not changed
+    - results.proxmox_groups is defined
