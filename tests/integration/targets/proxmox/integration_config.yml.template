@@ -8,4 +8,4 @@ api_token_secret: "put your api secret here"
 node: "proxmox"
 validate_certs: "no"
 vmid: 900
-
+storage: "local"
