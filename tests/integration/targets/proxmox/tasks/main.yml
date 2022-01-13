@@ -3,7 +3,10 @@
 # and should not be used as examples of how to write Ansible roles #
 ####################################################################
 
-# Copyright: (c) 2020, Tristan Le Guern <tleguern at bouledef.eu>
+# Copyright: (c) 2020, 2021, 2022
+# Authors:
+# Tristan Le Guern <tleguern at bouledef.eu>
+# Martijn <martijn at mrtijn.nl>
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 - include_tasks: proxmox_domain_info.yml
@@ -17,4 +20,4 @@
 # proxmox_nic integration tests are included in proxmox_kvm
 - include_tasks: proxmox_kvm.yml
 
-
+- include_tasks: proxmox.yml
