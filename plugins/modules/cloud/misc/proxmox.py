@@ -217,7 +217,7 @@ EXAMPLES = r'''
     hookscript: 'local:snippets/vm_hook.sh'
     description: created with ansible
 
-- name: Create new container automatically selecting the next available vmid.
+- name: Create new container automatically selecting the next available vmid
   community.general.proxmox:
     node: 'uk-mc02'
     api_user: 'root@pam'
@@ -227,7 +227,7 @@ EXAMPLES = r'''
     hostname: 'example.org'
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
 
-- name: Create new container with minimal options with force(it will rewrite existing container)
+- name: Create new container with minimal options with force (it will rewrite existing container)
   community.general.proxmox:
     vmid: 100
     node: uk-mc02
@@ -297,7 +297,7 @@ EXAMPLES = r'''
     ostemplate: local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     cores: 2
 
-- name: Create a new container with nesting enabled and allows the use of CIFS/NFS inside the container.
+- name: Create a new container with nesting enabled and allows the use of CIFS/NFS inside the container
   community.general.proxmox:
     vmid: 100
     node: uk-mc02
@@ -370,7 +370,7 @@ EXAMPLES = r'''
     force: yes
     state: stopped
 
-- name: Restart container(stopped or mounted container you can't restart)
+- name: Restart container (stopped or mounted container you can't restart)
   community.general.proxmox:
     vmid: 100
     api_user: root@pam
