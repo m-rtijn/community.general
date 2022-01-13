@@ -419,6 +419,9 @@ def get_nextvmid(module, proxmox):
 
 
 def get_vmid(proxmox, hostname):
+    """Get the vmid of a given hostname."""
+
+    # TODO: Could this give issues if hostnames are not unique? Does proxmox guarantee unique hostnames?
     return [vm['vmid'] for vm in proxmox.cluster.resources.get(type='vm') if 'name' in vm and vm['name'] == hostname]
 
 
