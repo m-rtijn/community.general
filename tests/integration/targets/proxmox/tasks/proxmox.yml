@@ -21,12 +21,58 @@
         ostemplate: "{{ ostemplate }}"
         vmid: "{{ ct_vmid }}"
         hostname: "test001"
-      register: results_ct
+      register: results_ct_create
 
     - ansible.builtin.assert:
         that:
-        - results_ct is changed
-        - results_ct.vmid == ct_vmid
+        - results_ct_create is changed
+        - results_ct_create.vmid == ct_vmid
 
     - ansible.builtin.pause:
         seconds: 30
+
+- name: Clone container
+  tags: ['clone']
+  block:
+    - name: Clone test container 'test002' from 'test001'
+      community.general.proxmox:
+        api_host: "{{ api_host }}"
+        api_user: "{{ user }}@{{ domain }}"
+        api_token_id: "{{ api_token_id | default(omit) }}"
+        api_token_secret: "{{ api_token_secret | default(omit) }}"
+        node: "{{ node }}"
+        state: present
+        password: "{{ ct_password }}"
+        ostemplate: "{{ ostemplate }}"
+        clone: "{{ ct_vmid }}"
+        vmid: "{{ ct_vmid_clone }}"
+        hostname: "test001"
+      register: results_ct_clone
+
+    - ansible.builtin.assert:
+        that:
+        - results_ct_clone is changed
+        - results_ct_clone.vmid == ct_vmid_clone
+
+    - ansible.builtin.pause:
+        seconds: 30
+
+- name: Start container
+  tags: ['start']
+  block:
+    - name: Start test container
+      community.general.proxmox:
+        api_host: "{{ api_host }}"
+        api_user: "{{ user }}@{{ domain }}"
+        api_token_id: "{{ api_token_id | default(omit) }}"
+        api_token_secret: "{{ api_token_secret | default(omit) }}"
+        node: "{{ node }}"
+        vmid: "{{ ct_vmid }}"
+        state: started
+      register: results_ct_start
+
+    - ansible.builtin.assert:
+        that:
+        - results_ct_start is changed
+        - results_ct_start.vmid == ct_vmid
+    
